@@ -15,7 +15,87 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+        <!-- Custom CSS -->
+        <style>
+            form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            }
 
+            .block {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            }
+
+            .mt-1 {
+            margin-top: 0.25rem;
+            }
+
+            .mt-4 {
+            margin-top: 1rem;
+            }
+
+            .w-full {
+            width: 100%;
+            }
+
+            .underline {
+            text-decoration: underline;
+            }
+
+            .text-sm {
+            font-size: 0.875rem;
+            }
+
+            .text-gray-600 {
+            color: #718096;
+            }
+
+            .hover\:text-gray-900:hover {
+            color: #1a202c;
+            }
+
+            .rounded-md {
+            border-radius: 0.375rem;
+            }
+
+            .focus\:outline-none:focus {
+            outline: none;
+            }
+
+            .focus\:ring-2:focus {
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+            }
+
+            .focus\:ring-offset-2:focus {
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.5);
+            }
+
+            .focus\:ring-indigo-500:focus {
+            border-color: #6366f1;
+            }
+
+            .ms-4 {
+            margin-left: 1rem;
+            }
+
+            .flex {
+            display: flex;
+            }
+
+            .items-center {
+            align-items: center;
+            }
+
+            .justify-end {
+            justify-content: flex-end;
+            }
+        </style>
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

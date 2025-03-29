@@ -48,7 +48,7 @@ Route::get('/blog/{slug}', function ($slug) {
     return view('frontend.post-single',compact('post'));
 });
 Route::get('/dashboard', function () {
-    return view('admin.dashboard');
+    return view('admin.dashbord');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(ContactController::class)->group(function () {
@@ -111,7 +111,7 @@ Route::controller(PostsController::class)->middleware(['auth','verified'])->grou
     Route::put('/givePermissionToRole/{id}','giveRoleToPermission')->name('role.giveRoleToPermission');
  });
  
- Route::controller(UserController::class)->middleware(['auth','verified','role:super-admin|admin'])->group(function (){
+ Route::controller(UserController::class)->middleware(['auth','verified',])->group(function (){
     
     Route::get('/userIndex','index');
     Route::post('/saveUser','storeuser')->name('user.store');
