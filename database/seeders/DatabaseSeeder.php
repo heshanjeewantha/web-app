@@ -13,9 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-        $this->call(
-            PostTableSeeder::class
-        );
+        $this->call([
+            SettingSeeder::class,
+            UserSeeder::class,
+            SliderSeeder::class,
+            TestimonialSeeder::class,
+            PostTableSeeder::class,
+            ContactSeeder::class,
+        ]);
     }
 }

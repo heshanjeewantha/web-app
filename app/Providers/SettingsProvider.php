@@ -21,7 +21,18 @@ class SettingsProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $main_settings = Settings::all()->pluck('value','key')->toArray();
-        View::share('main_settings',$main_settings);
+        try {
+            // Only load settings for web requests, not for console commands
+            if (!app()->runningInConsole()) {
+                // Check if the settings table exists
+                if (\Illuminate\Support\Facades\Schema::hasTable('settings')) {
+                    $main_settings = Settings::all()->pluck('value','key')->toArray();
+                    View::share('main_settings',$main_settings);
+                }
+            }
+        } catch (\Exception $e) {
+            // Silently handle database connection errors during boot
+            // This allows the application to start even if the database is not available
+        }
     }
 }
